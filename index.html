@@ -209,14 +209,12 @@
                     socket.emit('chat message', setO);
 
                     socket.on('chat message', function(data){
-                        debugger;
 
-//                        $('#messages').append($('<li>').text(msg));
+                        $(data).text(o)
                       });
 
-                    console.log();
 
-                    $(this).text(o)
+
 
 
                     $(this).addClass('disable o btn-primary')
@@ -229,7 +227,14 @@
                 } else {
                     count++
 
-                    socket.emit('chat message', $(this).text(x));
+                    var setX = $(this).attr('id');
+
+                    socket.emit('chat message', setX);
+
+                    socket.on('chat message', function(data){
+
+                        $(data).text(x)
+                      });
 
 
                     $(this).addClass('disable x btn-info')
