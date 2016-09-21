@@ -151,7 +151,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <!--
     <script>
-      var socket = io();
+
       $('form').submit(function(){
         socket.emit('chat message', $('#m').val());
         $('#m').val('');
@@ -163,6 +163,7 @@
     </script>
 -->
     <script>
+        var socket = io();
         // JavaScript Document
         $(document).ready(function () {
             var x = "x"
