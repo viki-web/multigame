@@ -204,12 +204,20 @@
                 } else if (count % 2 == 0) {
                     count++
 
-                    socket.emit('chat message', $(this).text(o));
+                    var setO = $(this).attr('id');
 
-                    socket.on('chat message', function(msg){
+                    socket.emit('chat message', setO);
+
+                    socket.on('chat message', function(data){
                         debugger;
+
 //                        $('#messages').append($('<li>').text(msg));
                       });
+
+                    console.log();
+
+                    $(this).text(o)
+
 
                     $(this).addClass('disable o btn-primary')
                     if ($("#one").hasClass('o') && $("#two").hasClass('o') && $("#three").hasClass('o') || $("#four").hasClass('o') && $("#five").hasClass('o') && $("#six").hasClass('o') || $("#seven").hasClass('o') && $("#eight").hasClass('o') && $("#nine").hasClass('o') || $("#one").hasClass('o') && $("#four").hasClass('o') && $("#seven").hasClass('o') || $("#two").hasClass('o') && $("#five").hasClass('o') && $("#eight").hasClass('o') || $("#three").hasClass('o') && $("#six").hasClass('o') && $("#nine").hasClass('o') || $("#one").hasClass('o') && $("#five").hasClass('o') && $("#nine").hasClass('o') || $("#three").hasClass('o') && $("#five").hasClass('o') && $("#seven").hasClass('o')) {
