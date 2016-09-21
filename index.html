@@ -164,10 +164,9 @@
 -->
     <script>
         var socket = io();
+        socket.on('chat message', function(data){
 
-       socket.on('chat message', function(data, val){
-
-        $(data).text(val)
+        $('#'+data.id).addClass('disable').text(data.val)
       });
 
         // JavaScript Document
@@ -210,10 +209,8 @@
                 } else if (count % 2 == 0) {
                     count++
 
-                    var setO = $(this).attr('id');
 
-                    socket.emit('chat message', setO, o);
-
+                    socket.emit('chat message', { id: $(this).attr('id'), val: o });
 
 
 
@@ -228,10 +225,8 @@
                 } else {
                     count++
 
-                    var setX = $(this).attr('id');
 
-                    socket.emit('chat message', setX, x);
-
+                    socket.emit('chat message', { id: $(this).attr('id'), val: x });
 
                     $(this).addClass('disable x btn-info')
                     if ($("#one").hasClass('x') && $("#two").hasClass('x') && $("#three").hasClass('x') || $("#four").hasClass('x') && $("#five").hasClass('x') && $("#six").hasClass('x') || $("#seven").hasClass('x') && $("#eight").hasClass('x') && $("#nine").hasClass('x') || $("#one").hasClass('x') && $("#four").hasClass('x') && $("#seven").hasClass('x') || $("#two").hasClass('x') && $("#five").hasClass('x') && $("#eight").hasClass('x') || $("#three").hasClass('x') && $("#six").hasClass('x') && $("#nine").hasClass('x') || $("#one").hasClass('x') && $("#five").hasClass('x') && $("#nine").hasClass('x') || $("#three").hasClass('x') && $("#five").hasClass('x') && $("#seven").hasClass('x')) {
