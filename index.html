@@ -2,107 +2,105 @@
 <html>
 
 <head>
-    <title>Socket.IO chat</title>
-    <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css'>
+    <title>Tic - Tac - Toe</title>
     <style>
-    /*******tic-tac-toe******/
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-#tic-tac-toe .disable {
-    text-transform: uppercase;
-    font-size: 30px;
-    font-family: Georgia, "Times New Roman", Times, serif
-}
+        .container {
+            width: 300px;
+            margin: 0 auto;
+            text-align: center;
+        }
 
-#tic-tac-toe #game li {
-    float: left;
-    padding: 0;
-    list-style: none;
-    text-align: center;
-    margin-bottom: 20px;
-    color: #fff;
-    height: 60px;
-    line-height: 60px;
-    font-size: 40px;
-    color: #ccc
-}
+        #tic-tac-toe .disable {
 
-#tic-tac-toe #game li.disable {
-    color: #fff
-}
+        }
 
-#tic-tac-toe #game {
-    float: left;
-    padding: 0;
-    clear: both
-}
+        #tic-tac-toe #game li {
+            padding: 0;
+            list-style: none;
+            text-align: center;
+            margin-bottom: 20px;color: #d4d4d4;
+            height: 70px;
+            line-height: 70px;
+            font-size: 40px;
+            border: 1px solid #dedede;
+            width: 90px;
+            float: left;
+            margin: 5px;
+        }
 
-.new_span {
-    width: 226px
-}
+        #tic-tac-toe #game li.disable {
+            color:tomato;
+        }
 
-#tic-tac-toe #reset {
-    padding: 5px 10px;
-    color: #fff;
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 20px;
-    clear: both;
-    cursor: pointer;
-    float: left;
-    text-align: center;
-    text-transform: uppercase;
-    outline: none;
-    width: 204px
-}
+        #tic-tac-toe #game {
+            padding: 0;
+            clear: both
+        }
 
-.input-prepend span.pre_text {
-    width: 55px
-}
+        #tic-tac-toe #reset {
+            padding: 15px 10px;
+            color: #05b905;
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 20px;
+            clear: both;
+            cursor: pointer;
+            text-align: center;
+            text-transform: uppercase;
+            outline: none;
+            /* width: 100%; */
+            display: block;
+            border: 1px solid #05b905;
+            margin: 20px 5px 0;
+            text-decoration: none;
+        }
 
-.input-prepend .span1 {
-    width: 93px
-}
+        .input-prepend span.pre_text {
+            width: 55px
+        }
 
-.input-prepend {
-    margin-bottom: 10px
-}
+        .input-prepend .span1 {
+            width: 93px
+        }
 
-.clr {
-    clear: both;
-    height: 0
-}
+        .input-prepend {
+            margin-bottom: 10px
+        }
 
-#tic-tac-toe h1 {
-    text-align: center;
-    font-size: 28px
-}
+        .clr {
+            clear: both;
+            height: 0
+        }
 
-#tic-tac-toe li::-moz-selection {
-    background: none;
-    color: #000;
-}
+        #tic-tac-toe h1 {
+            text-align: center;
+            font-size: 28px
+        }
 
-#tic-tac-toe li::-webkit-selection {
-    background: none;
-    color: #000;
-}
+        #tic-tac-toe li::-moz-selection {
+            background: none;
+            color: #000;
+        }
 
-#tic-tac-toe {
-    width: 220px;
-    margin: 0 auto
-}
+        #tic-tac-toe li::-webkit-selection {
+            background: none;
+            color: #000;
+        }
 
-.input-append .win_times {
-    background: #fff;
-    width: 101px
-}
+        .input-append .win_times {
+            background: #fff;
+            width: 101px
+        }
 
-.input-append .win_text {
-    width: 52px
-}
-
-
-/*******tic-tac-toe END******/
-
+        .input-append .win_text {
+            width: 52px
+        }
+        /*******tic-tac-toe END******/
     </style>
 </head>
 
@@ -115,7 +113,7 @@
 
 -->
 
-    <div id="tic-tac-toe">
+    <div id="tic-tac-toe" class="container">
         <div class="span3 new_span">
             <div class="row">
                 <h1 class="span3">Tic Tac Toe</h1>
@@ -133,15 +131,15 @@
 
             </div>
             <ul class="row" id="game">
-                <li id="one" class="btn span1">+</li>
-                <li id="two" class="btn span1">+</li>
-                <li id="three" class="btn span1">+</li>
-                <li id="four" class="btn span1">+</li>
-                <li id="five" class="btn span1">+</li>
-                <li id="six" class="btn span1">+</li>
-                <li id="seven" class="btn span1">+</li>
-                <li id="eight" class="btn span1">+</li>
-                <li id="nine" class="btn span1">+</li>
+                <li id="one" class="cell">+</li>
+                <li id="two" class="cell">+</li>
+                <li id="three" class="cell">+</li>
+                <li id="four" class="cell">+</li>
+                <li id="five" class="cell">+</li>
+                <li id="six" class="cell">+</li>
+                <li id="seven" class="cell">+</li>
+                <li id="eight" class="cell">+</li>
+                <li id="nine" class="cell">+</li>
             </ul>
             <div class="clr">&nbsp;</div>
             <div class="row"><a href="#" id="reset" class="btn-success btn span3">Restart</a></div>
@@ -165,77 +163,87 @@
     </script>
 -->
     <script>
-    // JavaScript Document
-$(document).ready(function () {
-    var x = "x"
-    var o = "o"
-    var count = 0;
-    var o_win = 0;
-    var x_win = 0;
-    $('#game li').click(function () {
+        // JavaScript Document
+        $(document).ready(function () {
+            var x = "x"
+            var o = "o"
+            var count = 0;
+            var o_win = 0;
+            var x_win = 0;
 
-        if ($("#one").hasClass('o') && $("#two").hasClass('o') && $("#three").hasClass('o') || $("#four").hasClass('o') && $("#five").hasClass('o') && $("#six").hasClass('o') || $("#seven").hasClass('o') && $("#eight").hasClass('o') && $("#nine").hasClass('o') || $("#one").hasClass('o') && $("#four").hasClass('o') && $("#seven").hasClass('o') || $("#two").hasClass('o') && $("#five").hasClass('o') && $("#eight").hasClass('o') || $("#three").hasClass('o') && $("#six").hasClass('o') && $("#nine").hasClass('o') || $("#one").hasClass('o') && $("#five").hasClass('o') && $("#nine").hasClass('o') || $("#three").hasClass('o') && $("#five").hasClass('o') && $("#seven").hasClass('o')) {
-            alert('O has won the game. Start a new game')
-            $("#game li").text("+");
-            $("#game li").removeClass('disable')
-            $("#game li").removeClass('o')
-            $("#game li").removeClass('x')
-            $("#game li").removeClass('btn-primary')
-            $("#game li").removeClass('btn-info')
-        } else if ($("#one").hasClass('x') && $("#two").hasClass('x') && $("#three").hasClass('x') || $("#four").hasClass('x') && $("#five").hasClass('x') && $("#six").hasClass('x') || $("#seven").hasClass('x') && $("#eight").hasClass('x') && $("#nine").hasClass('x') || $("#one").hasClass('x') && $("#four").hasClass('x') && $("#seven").hasClass('x') || $("#two").hasClass('x') && $("#five").hasClass('x') && $("#eight").hasClass('x') || $("#three").hasClass('x') && $("#six").hasClass('x') && $("#nine").hasClass('x') || $("#one").hasClass('x') && $("#five").hasClass('x') && $("#nine").hasClass('x') || $("#three").hasClass('x') && $("#five").hasClass('x') && $("#seven").hasClass('x')) {
-            alert('X wins has won the game. Start a new game')
-            $("#game li").text("+");
-            $("#game li").removeClass('disable')
-            $("#game li").removeClass('o')
-            $("#game li").removeClass('x')
-            $("#game li").removeClass('btn-primary')
-            $("#game li").removeClass('btn-info')
-        } else if (count == 9) {
-            alert('Its a tie. It will restart.')
-            $("#game li").text("+");
-            $("#game li").removeClass('disable')
-            $("#game li").removeClass('o')
-            $("#game li").removeClass('x')
-            $("#game li").removeClass('btn-primary')
-            $("#game li").removeClass('btn-info')
-            count = 0
-        } else if ($(this).hasClass('disable')) {
-            alert('Already selected')
-        } else if (count % 2 == 0) {
-            count++
-            $(this).text(o)
-            $(this).addClass('disable o btn-primary')
-            if ($("#one").hasClass('o') && $("#two").hasClass('o') && $("#three").hasClass('o') || $("#four").hasClass('o') && $("#five").hasClass('o') && $("#six").hasClass('o') || $("#seven").hasClass('o') && $("#eight").hasClass('o') && $("#nine").hasClass('o') || $("#one").hasClass('o') && $("#four").hasClass('o') && $("#seven").hasClass('o') || $("#two").hasClass('o') && $("#five").hasClass('o') && $("#eight").hasClass('o') || $("#three").hasClass('o') && $("#six").hasClass('o') && $("#nine").hasClass('o') || $("#one").hasClass('o') && $("#five").hasClass('o') && $("#nine").hasClass('o') || $("#three").hasClass('o') && $("#five").hasClass('o') && $("#seven").hasClass('o')) {
-                alert('O wins')
+            $('#game li').click(function () {
+
+                if ($("#one").hasClass('o') && $("#two").hasClass('o') && $("#three").hasClass('o') || $("#four").hasClass('o') && $("#five").hasClass('o') && $("#six").hasClass('o') || $("#seven").hasClass('o') && $("#eight").hasClass('o') && $("#nine").hasClass('o') || $("#one").hasClass('o') && $("#four").hasClass('o') && $("#seven").hasClass('o') || $("#two").hasClass('o') && $("#five").hasClass('o') && $("#eight").hasClass('o') || $("#three").hasClass('o') && $("#six").hasClass('o') && $("#nine").hasClass('o') || $("#one").hasClass('o') && $("#five").hasClass('o') && $("#nine").hasClass('o') || $("#three").hasClass('o') && $("#five").hasClass('o') && $("#seven").hasClass('o')) {
+                    alert('O has won the game. Start a new game')
+                    $("#game li").text("+");
+                    $("#game li").removeClass('disable')
+                    $("#game li").removeClass('o')
+                    $("#game li").removeClass('x')
+                    $("#game li").removeClass('btn-primary')
+                    $("#game li").removeClass('btn-info')
+                } else if ($("#one").hasClass('x') && $("#two").hasClass('x') && $("#three").hasClass('x') || $("#four").hasClass('x') && $("#five").hasClass('x') && $("#six").hasClass('x') || $("#seven").hasClass('x') && $("#eight").hasClass('x') && $("#nine").hasClass('x') || $("#one").hasClass('x') && $("#four").hasClass('x') && $("#seven").hasClass('x') || $("#two").hasClass('x') && $("#five").hasClass('x') && $("#eight").hasClass('x') || $("#three").hasClass('x') && $("#six").hasClass('x') && $("#nine").hasClass('x') || $("#one").hasClass('x') && $("#five").hasClass('x') && $("#nine").hasClass('x') || $("#three").hasClass('x') && $("#five").hasClass('x') && $("#seven").hasClass('x')) {
+                    alert('X wins has won the game. Start a new game')
+                    $("#game li").text("+");
+                    $("#game li").removeClass('disable')
+                    $("#game li").removeClass('o')
+                    $("#game li").removeClass('x')
+                    $("#game li").removeClass('btn-primary')
+                    $("#game li").removeClass('btn-info')
+                } else if (count == 9) {
+                    alert('Its a tie. It will restart.')
+                    $("#game li").text("+");
+                    $("#game li").removeClass('disable')
+                    $("#game li").removeClass('o')
+                    $("#game li").removeClass('x')
+                    $("#game li").removeClass('btn-primary')
+                    $("#game li").removeClass('btn-info')
+                    count = 0
+                } else if ($(this).hasClass('disable')) {
+                    alert('Already selected')
+                } else if (count % 2 == 0) {
+                    count++
+
+                    socket.emit('chat message', $(this).text(o));
+
+                    socket.on('chat message', function(msg){
+                        debugger;
+//                        $('#messages').append($('<li>').text(msg));
+                      });
+
+                    $(this).addClass('disable o btn-primary')
+                    if ($("#one").hasClass('o') && $("#two").hasClass('o') && $("#three").hasClass('o') || $("#four").hasClass('o') && $("#five").hasClass('o') && $("#six").hasClass('o') || $("#seven").hasClass('o') && $("#eight").hasClass('o') && $("#nine").hasClass('o') || $("#one").hasClass('o') && $("#four").hasClass('o') && $("#seven").hasClass('o') || $("#two").hasClass('o') && $("#five").hasClass('o') && $("#eight").hasClass('o') || $("#three").hasClass('o') && $("#six").hasClass('o') && $("#nine").hasClass('o') || $("#one").hasClass('o') && $("#five").hasClass('o') && $("#nine").hasClass('o') || $("#three").hasClass('o') && $("#five").hasClass('o') && $("#seven").hasClass('o')) {
+                        alert('O wins')
+                        count = 0
+                        o_win++
+                        $('#o_win').text(o_win)
+                    }
+                } else {
+                    count++
+
+                    socket.emit('chat message', $(this).text(x));
+
+
+                    $(this).addClass('disable x btn-info')
+                    if ($("#one").hasClass('x') && $("#two").hasClass('x') && $("#three").hasClass('x') || $("#four").hasClass('x') && $("#five").hasClass('x') && $("#six").hasClass('x') || $("#seven").hasClass('x') && $("#eight").hasClass('x') && $("#nine").hasClass('x') || $("#one").hasClass('x') && $("#four").hasClass('x') && $("#seven").hasClass('x') || $("#two").hasClass('x') && $("#five").hasClass('x') && $("#eight").hasClass('x') || $("#three").hasClass('x') && $("#six").hasClass('x') && $("#nine").hasClass('x') || $("#one").hasClass('x') && $("#five").hasClass('x') && $("#nine").hasClass('x') || $("#three").hasClass('x') && $("#five").hasClass('x') && $("#seven").hasClass('x')) {
+                        alert('X wins')
+                        count = 0
+                        x_win++
+                        $('#x_win').text(x_win)
+                    }
+                }
+
+            });
+            $("#reset").click(function () {
+                $("#game li").text("+");
+                $("#game li").removeClass('disable')
+                $("#game li").removeClass('o')
+                $("#game li").removeClass('x')
+                $("#game li").removeClass('btn-primary')
+                $("#game li").removeClass('btn-info')
                 count = 0
-                o_win++
-                $('#o_win').text(o_win)
-            }
-        } else {
-            count++
-            $(this).text(x)
-            $(this).addClass('disable x btn-info')
-            if ($("#one").hasClass('x') && $("#two").hasClass('x') && $("#three").hasClass('x') || $("#four").hasClass('x') && $("#five").hasClass('x') && $("#six").hasClass('x') || $("#seven").hasClass('x') && $("#eight").hasClass('x') && $("#nine").hasClass('x') || $("#one").hasClass('x') && $("#four").hasClass('x') && $("#seven").hasClass('x') || $("#two").hasClass('x') && $("#five").hasClass('x') && $("#eight").hasClass('x') || $("#three").hasClass('x') && $("#six").hasClass('x') && $("#nine").hasClass('x') || $("#one").hasClass('x') && $("#five").hasClass('x') && $("#nine").hasClass('x') || $("#three").hasClass('x') && $("#five").hasClass('x') && $("#seven").hasClass('x')) {
-                alert('X wins')
-                count = 0
-                x_win++
-                $('#x_win').text(x_win)
-            }
-        }
 
-    });
-    $("#reset").click(function () {
-        $("#game li").text("+");
-        $("#game li").removeClass('disable')
-        $("#game li").removeClass('o')
-        $("#game li").removeClass('x')
-        $("#game li").removeClass('btn-primary')
-        $("#game li").removeClass('btn-info')
-        count = 0
-
-    });
-});
-
+            });
+        });
     </script>
 </body>
 
