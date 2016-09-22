@@ -1,0 +1,95 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.container {
+    width: 300px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+#tic-tac-toe .disable {}
+
+#tic-tac-toe #game li {
+    padding: 0;
+    list-style: none;
+    text-align: center;
+    margin-bottom: 20px;
+    color: #d4d4d4;
+    height: 70px;
+    line-height: 70px;
+    font-size: 40px;
+    border: 1px solid #dedede;
+    width: 90px;
+    float: left;
+    margin: 5px;
+}
+
+#tic-tac-toe #game li.disable {
+    color: tomato;
+}
+
+#tic-tac-toe #game {
+    padding: 0;
+    clear: both
+}
+
+#tic-tac-toe #reset {
+    padding: 15px 10px;
+    color: #05b905;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 20px;
+    clear: both;
+    cursor: pointer;
+    text-align: center;
+    text-transform: uppercase;
+    outline: none;
+    /* width: 100%; */
+    display: block;
+    border: 1px solid #05b905;
+    margin: 20px 5px 0;
+    text-decoration: none;
+}
+
+.input-prepend span.pre_text {
+    width: 55px
+}
+
+.input-prepend .span1 {
+    width: 93px
+}
+
+.input-prepend {
+    margin-bottom: 10px
+}
+
+.clr {
+    clear: both;
+    height: 0
+}
+
+#tic-tac-toe h1 {
+    text-align: center;
+    font-size: 28px
+}
+
+#tic-tac-toe li::-moz-selection {
+    background: none;
+    color: #000;
+}
+
+#tic-tac-toe li::-webkit-selection {
+    background: none;
+    color: #000;
+}
+
+.input-append .win_times {
+    background: #fff;
+    width: 101px
+}
+
+.input-append .win_text {
+    width: 52px
+}
