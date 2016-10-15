@@ -1,64 +1,103 @@
+@import url('https://fonts.googleapis.com/css?family=Gochi+Hand|Wendy+One');
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
+body {
+    font-family: 'Gochi Hand', cursive;
+    background: #6B6560;
+    color: #fff;
+}
+
+.clearfix:after {
+    content: '';
+    display: table;
+    clear: both;
+}
+
+.tic-tac-toe {
+    margin-top: 80px;
+}
+
 .container {
     width: 300px;
-    margin: 0 auto;
+    margin-left: auto;
+    margin-right: auto;
     text-align: center;
 }
 
-#tic-tac-toe .disable {}
+.tic-tac-toe .disable {}
 
-#tic-tac-toe #game li {
+.gameContainer {
+    position: relative;
+    height: 300px;
+    width: 300px;
+    overflow: hidden;
+    margin: 25px 0;
+}
+
+.tic-tac-toe .game li {
+    font-family: 'Alfa Slab One', cursive;
     padding: 0;
     list-style: none;
     text-align: center;
-    margin-bottom: 20px;
     color: #d4d4d4;
-    height: 70px;
-    line-height: 70px;
-    font-size: 40px;
-    border: 1px solid #dedede;
-    width: 90px;
+    height: 104px;
+    line-height: 100px;
+    font-size: 60px;
+    border-width: 2px;
+    font-weight: 700;
+    border-color: #6F6965;
+    border-style: solid;
+    width: 33.33%;
     float: left;
-    margin: 5px;
+    cursor: pointer;
 }
 
-#tic-tac-toe #game li.disable {
-    color: tomato;
+.tic-tac-toe .game li.yellow {
+    color: #FDE57C;
 }
 
-#tic-tac-toe #game {
+.tic-tac-toe .game li.blue {
+    color: #A3D5FC;
+}
+
+.tic-tac-toe .game {
     padding: 0;
-    clear: both
+    clear: both;
+    position: absolute;
+    top: -5px;
+    bottom: -5px;
+    right: -5px;
+    left: -5px;
 }
 
-#tic-tac-toe #reset {
-    padding: 15px 10px;
-    color: #05b905;
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 20px;
+.tic-tac-toe #reset {
+    padding: 12px 20px;
+    color: #ffffff;
+    font-size: 16px;
     clear: both;
     cursor: pointer;
     text-align: center;
-    text-transform: uppercase;
     outline: none;
-    /* width: 100%; */
-    display: block;
-    border: 1px solid #05b905;
+    display: inline-block;
     margin: 20px 5px 0;
     text-decoration: none;
+    background-color: #797979;
+    border-radius: 8px;
+    letter-spacing: 0px;
 }
 
-.input-prepend span.pre_text {
-    width: 55px
+.input-prepend {
+    width: 50%;
+    float: left;
 }
 
-.input-prepend .span1 {
-    width: 93px
+.winningSection {
+    margin: 20px 0;
+    color: #ccc;
 }
 
 .input-prepend {
@@ -70,26 +109,22 @@
     height: 0
 }
 
-#tic-tac-toe h1 {
+.tic-tac-toe h1 {
     text-align: center;
-    font-size: 28px
+    font-size: 38px;
+    color: #e6e6e6;
 }
 
-#tic-tac-toe li::-moz-selection {
+.tic-tac-toe li::-moz-selection {
     background: none;
     color: #000;
 }
 
-#tic-tac-toe li::-webkit-selection {
+.tic-tac-toe li::-webkit-selection {
     background: none;
     color: #000;
 }
 
 .input-append .win_times {
-    background: #fff;
-    width: 101px
-}
-
-.input-append .win_text {
-    width: 52px
+    margin: 0 4px;
 }
