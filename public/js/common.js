@@ -1,11 +1,11 @@
 var socket = io();
 var x_chance;
 socket.on('chat message', function (data) {
-    
+
     var color = (data.val == 'o' ? "yellow" : "blue");
-    x_chance = (data.user_chance == 'x'? true : false)
-    
-    $('#' + data.id).addClass('disable ' +color).text(data.val)
+    x_chance = (data.user_chance == 'x' ? true : false)
+
+    $('#' + data.id).addClass('disable ' + color).text(data.val)
 });
 
 // JavaScript Document
@@ -29,24 +29,21 @@ $(document).ready(function () {
     $('.game li').click(function () {
         if (!$(this).text()) {
 
-
             if (x_chance) {
                 socket.emit('chat message', {
                     id: $(this).attr('id'),
-                    val: x,
+                    val: o,
                     user_chance: o,
                 });
 
             } else {
-
                 socket.emit('chat message', {
                     id: $(this).attr('id'),
-                    val: o,
+                    val: x,
                     user_chance: x,
                 });
 
             }
-
 
         } else {
             alert('already selected');
